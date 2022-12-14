@@ -1,0 +1,7 @@
+{
+  "name": "SDK-Quickstart",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
