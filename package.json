@@ -5,7 +5,8 @@
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ionic serve",
+    "build:ios": "ionic build && ionic cap copy && ionic cap sync && ionic cap open ios",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -22,11 +23,13 @@
     "@capacitor/app": "4.1.1",
     "@capacitor/core": "4.6.1",
     "@capacitor/haptics": "4.1.0",
+    "@capacitor/ios": "4.6.1",
     "@capacitor/keyboard": "4.1.0",
     "@capacitor/status-bar": "4.1.1",
     "@ionic/angular": "^6.1.9",
     "ionicons": "^6.0.3",
     "rxjs": "~7.5.0",
+    "sdk-quickstart": "file:sdk-quickstart",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
