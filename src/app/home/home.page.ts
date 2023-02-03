@@ -55,7 +55,7 @@ export class HomePage {
   }
 
   getAllFiles() {
-    Dormakaba.getAllFiles({})
+    Dormakaba.getAllFiles()
       .then((res: { result: string }) => {
         console.log('Result after completeRegistration', res);
         alert('Result : ' + res.result);
