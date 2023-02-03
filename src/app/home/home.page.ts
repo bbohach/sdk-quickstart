@@ -10,6 +10,26 @@ import { DataService } from '../services/data.service';
 export class HomePage {
   deviceId = '';
   token = '';
+  state:
+    | 'AVAILABLE'
+    | 'DEPLOY IN PROGRESS'
+    | 'DEPLOYED'
+    | 'REJECTED'
+    | 'REMOVE IN PROGRESS'
+    | 'REMOVED'
+    | 'REQUEST ADD'
+    | 'REQUEST REMOVE' = 'AVAILABLE';
+
+  states = [
+    'AVAILABLE',
+    'DEPLOY IN PROGRESS',
+    'DEPLOYED',
+    'REJECTED',
+    'REMOVE IN PROGRESS',
+    'REMOVED',
+    'REQUEST ADD',
+    'REQUEST REMOVE',
+  ];
 
   constructor(private data: DataService) {}
 
@@ -25,6 +45,29 @@ export class HomePage {
 
   onCompleteRegistration() {
     Dormakaba.completeRegistration({ token: this.token })
+      .then((res: { result: string }) => {
+        console.log('Result after completeRegistration', res);
+        alert('Result : ' + res.result);
+      })
+      .catch((err: any) => {
+        console.error('Error: ', err);
+      });
+  }
+
+  getAllFiles() {
+    Dormakaba.getAllFiles({})
+      .then((res: { result: string }) => {
+        console.log('Result after completeRegistration', res);
+        alert('Result : ' + res.result);
+      })
+      .catch((err: any) => {
+        console.error('Error: ', err);
+      });
+  }
+
+  getAllFilesWithState() {
+    console.log(this.state);
+    Dormakaba.getAllFilesWithState({ fileState: this.state })
       .then((res: { result: string }) => {
         console.log('Result after completeRegistration', res);
         alert('Result : ' + res.result);

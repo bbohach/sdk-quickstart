@@ -18,5 +18,20 @@
     <ion-button (click)="onCompleteRegistration()"
       >completeRegistration</ion-button
     >
+    <br /><br />
+    <ion-button (click)="getAllFiles()">get All files</ion-button>
+    <br /><br />
+    <ion-item>
+      <ion-select [(ngModel)]="state">
+        <ion-select-option *ngFor="let st of states" [value]="st">
+          {{st}}
+        </ion-select-option>
+      </ion-select>
+      <ion-input [(ngModel)]="token"></ion-input>
+    </ion-item>
+
+    <ion-button (click)="getAllFilesWithState()"
+      >completeRegistration</ion-button
+    >
   </ion-list>
 </ion-content>
