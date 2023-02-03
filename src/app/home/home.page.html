@@ -10,5 +10,13 @@
       <ion-input [(ngModel)]="deviceId"></ion-input>
     </ion-item>
     <ion-button [expand]="'block'" (click)="register()">Register</ion-button>
+    <br /><br />
+    <ion-item>
+      <ion-input [(ngModel)]="token"></ion-input>
+    </ion-item>
+
+    <ion-button (click)="onCompleteRegistration()"
+      >completeRegistration</ion-button
+    >
   </ion-list>
 </ion-content>

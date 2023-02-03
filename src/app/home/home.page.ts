@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SDKQuickstart } from 'sdk-quickstart';
+import { Dormakaba } from 'dormakaba';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -9,15 +9,27 @@ import { DataService } from '../services/data.service';
 })
 export class HomePage {
   deviceId = '';
+  token = '';
 
   constructor(private data: DataService) {}
 
   register() {
-    SDKQuickstart.onRegister({ deviceId: this.deviceId })
+    Dormakaba.onRegister({ deviceId: this.deviceId })
       .then((res) => {
         console.log('Result after register', res);
       })
       .catch((err) => {
+        console.error('Error: ', err);
+      });
+  }
+
+  onCompleteRegistration() {
+    Dormakaba.completeRegistration({ token: this.token })
+      .then((res: { result: string }) => {
+        console.log('Result after completeRegistration', res);
+        alert('Result : ' + res.result);
+      })
+      .catch((err: any) => {
         console.error('Error: ', err);
       });
   }
