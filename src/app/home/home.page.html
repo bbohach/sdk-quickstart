@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="ion-padding">
   <ion-list>
     <ion-item>
       <ion-input [(ngModel)]="deviceId"></ion-input>
@@ -19,7 +19,7 @@
       >completeRegistration</ion-button
     >
     <br /><br />
-    <ion-button (click)="getAllFiles()">get All files</ion-button>
+    <ion-button (click)="getAllFiles()">Get All files</ion-button>
     <br /><br />
     <ion-item>
       <ion-select [(ngModel)]="state">
@@ -27,11 +27,10 @@
           {{st}}
         </ion-select-option>
       </ion-select>
-      <ion-input [(ngModel)]="token"></ion-input>
     </ion-item>
 
     <ion-button (click)="getAllFilesWithState()"
-      >completeRegistration</ion-button
+      >Get Files With State</ion-button
     >
   </ion-list>
 </ion-content>
